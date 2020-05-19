@@ -14,6 +14,9 @@ public class Juegos implements Parcelable {
     @SerializedName("playtime_forever")
     private int tiempoJuego;
 
+    @SerializedName("playtime_2weeks")
+    private int tiempoJuegotoSemanas;
+
     @SerializedName("img_icon_url")
     private String urlIconoJuego;
 
@@ -26,16 +29,17 @@ public class Juegos implements Parcelable {
     @SerializedName("playtime_windows_forever")
     private int tiempoJuegoWindows;
 
-    @SerializedName("playtime_windows_forever")
+    @SerializedName("playtime_mac_forever")
     private int tiempoJuegoMac;
 
-    @SerializedName("playtime_windows_forever")
+    @SerializedName("playtime_linux_forever")
     private int tiempoJuegoLinux;
 
-    public Juegos(String appid, String nombre, int tiempoJuego, String urlIconoJuego, String urlLogoJuego, String tieneEstadisticasVisibles, int tiempoJuegoWindows, int tiempoJuegoMac, int tiempoJuegoLinux) {
+    public Juegos(String appid, String nombre, int tiempoJuego, int tiempoJuegotoSemanas, String urlIconoJuego, String urlLogoJuego, String tieneEstadisticasVisibles, int tiempoJuegoWindows, int tiempoJuegoMac, int tiempoJuegoLinux) {
         this.appid = appid;
         this.nombre = nombre;
         this.tiempoJuego = tiempoJuego;
+        this.tiempoJuegotoSemanas = tiempoJuegotoSemanas;
         this.urlIconoJuego = urlIconoJuego;
         this.urlLogoJuego = urlLogoJuego;
         this.tieneEstadisticasVisibles = tieneEstadisticasVisibles;
@@ -48,6 +52,7 @@ public class Juegos implements Parcelable {
         appid = in.readString();
         nombre = in.readString();
         tiempoJuego = in.readInt();
+        tiempoJuegotoSemanas = in.readInt();
         urlIconoJuego = in.readString();
         urlLogoJuego = in.readString();
         tieneEstadisticasVisibles = in.readString();
@@ -92,6 +97,14 @@ public class Juegos implements Parcelable {
         this.tiempoJuego = tiempoJuego;
     }
 
+    public int getTiempoJuegotoSemanas() {
+        return tiempoJuegotoSemanas;
+    }
+
+    public void setTiempoJuegotoSemanas(int tiempoJuegotoSemanas) {
+        this.tiempoJuegotoSemanas = tiempoJuegotoSemanas;
+    }
+
     public String getUrlIconoJuego() {
         return urlIconoJuego;
     }
@@ -108,7 +121,7 @@ public class Juegos implements Parcelable {
         this.urlLogoJuego = urlLogoJuego;
     }
 
-    public String isTieneEstadisticasVisibles() {
+    public String getTieneEstadisticasVisibles() {
         return tieneEstadisticasVisibles;
     }
 
@@ -150,6 +163,7 @@ public class Juegos implements Parcelable {
         dest.writeString(appid);
         dest.writeString(nombre);
         dest.writeInt(tiempoJuego);
+        dest.writeInt(tiempoJuegotoSemanas);
         dest.writeString(urlIconoJuego);
         dest.writeString(urlLogoJuego);
         dest.writeString(tieneEstadisticasVisibles);

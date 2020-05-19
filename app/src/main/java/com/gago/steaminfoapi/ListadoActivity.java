@@ -18,7 +18,6 @@ public class ListadoActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_listado);
-
         listaJuegos = new ArrayList<>();
         rvJuegos = findViewById(R.id.rvJuegos);
         rvJuegos.setLayoutManager(new LinearLayoutManager(this));
